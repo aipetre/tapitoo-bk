@@ -1,0 +1,97 @@
+{% extends 'layout.html.twig' %}
+
+{% block customstylesheets %}
+{% endblock %}
+
+{% block customjavascript %}
+    <script src="/js/pagination.js"></script>
+    <script src="/js/manageClients/manage.clients.js"></script>
+{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html.twig' with {restaurant:'', clients:'active', orders:'open', stats:'', staff: 'open'} %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="main" id="userPage">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="span12">
+
+                    <div class="widget stacked ">
+
+                        <div class="widget-header">
+                            <i class="icon-pencil"></i>
+
+                            <h3 data-i18n="userPage.title"></h3>
+                        </div>
+                        <!-- /widget-header -->
+
+                        <div class="widget-content">
+
+
+                            <section id="buttons">
+                                <h3 data-i18n="userPage.labels.actions"></h3>
+                                {% include 'assets/loader.html.twig'  with { 'oneAjaxOnPage': true, 'divId' : 'usersForm'} %}
+                                {% include 'assets/messages.html.twig' with { 'error': error} %}
+                                <button class="btn btn-large btn-primary" id="showMassNotification"
+                                        data-i18n="userPage.buttons.send_mass_notification"></button>
+                            </section>
+                            <input type="hidden" name="clientsData" value='{{ view.users|json_encode() }}'/>
+                            </br>
+                            <section id="tables">
+                                <h3 data-i18n="userPage.labels.users"></h3>
+                                <input type="text" class="input-large" id="searchClientName" searchBy="name" data-i18n="[placeholder]userPage.labels.search_name" />
+                                <button class="btn btn-medium btn-secondary" data-i18n="common.buttons.search" style="margin-bottom: 10px;" id="searchClients"></button>
+                                <div data-i18n="common.labels.nothing_found" style="display:none;" id="emptySearch"></div>
+
+                                <div id="tableContent">
+                                    {% include 'clients/clients.html.twig' with {'users':view.users, 'locations': view.locations } %}
+                                </div>
+
+                            </section>
+                        </div>
+                        <!-- /widget-content -->
+
+                    </div>
+                    <!-- /widget -->
+
+                </div>
+                <!-- /span12 -->
+
+            </div>
+            <!-- /row -->
+
+        </div>
+        <!-- /container -->
+        <div class="modal fade hide" id="myModal">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h3 data-i18n="modals.clientsMassNotifications.title"></h3>
+            </div>
+            <div class="modal-body" id="modalMine">
+                {% include 'assets/messages.html.twig' with { 'divId': "Modal"} %}
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label" for="textMessage"
+                               data-i18n="modals.clientsMassNotifications.header"></label>
+
+                        <div class="controls">
+                            <textarea class="span4" name="textMessage" id="textMessage" rows="4"></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="modal-footer">
+                    <a class="btn" id="cancelSendMassMessage" data-dismiss="modal"
+                       data-i18n="common.buttons.cancel"></a>
+                    <a class="btn btn-primary" id="sendMassMessage" data-dismiss="modal"
+                       data-i18n="common.buttons.send"></a>
+                </div>
+            </div>
+        </div>
+    </div> <!-- /main -->
+{% endblock %}

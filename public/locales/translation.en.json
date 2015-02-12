@@ -1,0 +1,422 @@
+{
+    "mainnav": {
+        "restaurant": "Restaurant",
+        "opening_hours": "Opening hours",
+        "clients": "Clients",
+        "stats": "Stats",
+        "overview_stats": "Overview",
+        "clients_stats": "Clients",
+        "reservations_stats": "Reservations",
+        "orders_stats": "Orders",
+        "staff_stats": "Staff",
+        "feedback": "Feedback",
+        "3rd_party": "3rd party",
+        "home": "Home",
+        "users": "Users",
+        "menu": "Manage Menu",
+        "reservations": "Reservations",
+        "commands": "Orders",
+        "map": "Map",
+        "tables": "Tables",
+        "delivery": "Delivery Area",
+        "delivery_fees": "Delivery Fees",
+        "staff": "Accounts",
+        "add_staff": "Add Staff",
+        "edit_staff": "Edit Staff",
+        "my_account": "Your Account",
+        "coming_soon": "Coming soon",
+        "coupons_discounts": "Coupons and discounts",
+        "events": "Events",
+        "locations": "Set Location",
+        "mange_locations": "Manage Locations",
+        "view_locations_list": "View List",
+        "add_location": "Add Location",
+        "comming_soon": "Coming Soon",
+        "add_restaurant": "Add Restaurant",
+        "restaurants": "Restaurants"
+    },
+    "loginPage": {
+        "restauranName": "Restaurant Name",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "password": "Password",
+        "confirm_password": "Confirm Password",
+        "url": "Restaurant Website (optional)",
+        "phone_number": "Phone Number",
+        "country": "Country",
+        "city": "City",
+        "address1": "Address 1",
+        "address2": "Address 2",
+        "postal_code": "Postal Code",
+        "signup_success": "Thank you for creating your Admin account. We will contact you with your credentials.",
+        "go_to_login": "Go to",
+        "login_link_text": "Login Page",
+        "invalid_login": "The username or password you provided are invalid",
+        "not_active": "The restaurant you are trying to log into is closed",
+        "username": "Username",
+        "password": "Password"
+
+    },
+    "topRightBar": {
+        "settings": "Settings",
+        "acc_settings": "Account Settings",
+        "private_settings": "Privacy Settings",
+        "help": "Help",
+        "my_profile": "My Profile",
+        "my_groups": "My Groups",
+        "my_account": "My Account",
+        "logout": "Logout",
+        "search": "Search",
+        "lng": "Select your language"
+    },
+    "pagination": {
+        "prev": "Prev",
+        "next": "Next"
+    },
+    "reservationPage": {
+        "title": "Reservations",
+        "buttons": {
+            "pending": "Pending",
+            "accepted": "Accepted",
+            "rejected": "Rejected"
+        },
+        "tableColumn": {
+            "name": "Name",
+            "persons": "# Persons",
+            "date": "Date",
+            "hour": "Hours"
+        }
+    },
+    "ordersPage": {
+        "title": "Orders",
+        "order_update": "Order was succesfully updated",
+        "buttons": {
+            "accept_order": "Accept Order",
+            "launch_order": "Launch Order",
+            "deny_order": "Deny Order",
+            "close_order": "Close Order"
+        },
+        "labels": {
+            "delivery": "Delivery",
+            "pickup": "Pickup",
+            "order": "Order",
+            "new": "New",
+            "accepted": "Accepted",
+            "denied": "Denied",
+            "launched": "Launched",
+            "closed": "Closed",
+            "show_map": "Show Map"
+        },
+        "tableHeader": {
+            "product": "Product",
+            "quantity": "Quantity",
+            "price": "Price",
+            "total": "Total"
+        },
+        "message": {
+            "no_orders": "No orders to display",
+            "accepted_order": "Your order has been accepted and will be delivered in %timeToDelivery%",
+            "denied_order": "Your order has been denied!",
+            "closed_order": "Your order has been closed. Thank you for your service!",
+            "notification_sent": "Order was updated and sent notification to client.",
+            "notification_error": "Order was updated but was not able to notify the client."
+        }
+    },
+    "mapPage": {
+        "title": "Set location",
+        "addLocation": "Add location",
+        "saveLocation": "Save location",
+        "findLocation": "Find location",
+        "tip_location": "Tip: Click on 'Add location' button to add marker on the map and drag it to your location or just type in your address and then click on 'Find location' button",
+        "location_fail": "Unable to determine location",
+        "no_results": "No results for the given address",
+        "labels": {
+            "latitude": "Latitude",
+            "longitude": "Longitude"
+        },
+        "messages": {
+            "fileCreation": "Failed to create file to store values",
+            "fileUpdate": "Could not update values"
+        }
+    },
+    "deliveryPage": {
+        "title": "Set delivery area",
+        "saveDelivery": "Save area",
+        "warningNoLocation": "You don't have your location set. Please go to Restaurant > Location page and set your Restaurant's location. Go to page"
+    },
+    "deliveryFeePage": {
+        "title": "Delivery Fees",
+        "saveFees": "Save fees",
+        "labels": {
+            "min_delivery_fee": "Minimum Delivery Fee",
+            "delivery_fee": "Delivery Fee"
+        }
+    },
+    "homePage": {
+        "labels": {
+            "quick_stats": "Quick Stats",
+            "qr_code": "QR Code",
+            "app_visits": "App visits",
+            "new_visits": "New visits",
+            "average_time_on_app": "Average Time on App",
+            "print_qr_code": "Print QR code",
+            "qr_code_alternative": "Alternatively, you can save the image below, and print it afterwards.",
+            "chart": "Chart"
+        }
+    },
+    "userPage": {
+        "title": "User stats and communication",
+        "labels": {
+            "actions": "Actions",
+            "users": "Clients",
+            "search_name": "Search by Name"
+        },
+        "buttons": {
+            "send_sms": "Send mass sms message",
+            "send_mass_notification": "Send mass notifications"
+        },
+        "tableHeader": {
+            "name": "Name",
+            "locationName": "Location",
+            "occupations": "Occupation",
+            "phone_number": "Phone number",
+            "birthday": "Birthday",
+            "location": "Location",
+            "facebook": "Facebook",
+            "date": "Date",
+            "mail": "Email"
+        },
+        "message": {
+            "no_devices": "There are no valid Android or iOS devices to sent notifications.",
+            "empty_text": "Message cannot be empty.",
+            "no_clients": "No clients to send notifications.",
+            "push_notifications_failure": "Could not send notifications at this time, please try again later.",
+            "push_notifications_success": "Notifications were sent.",
+            "check_ios_certificates": "Please upload the certificates for the iOS applications!",
+            "no_ios_notification": "Could not push notification to iOS"
+        }
+    },
+    "menuPage": {
+        "title" : "Manage Menu",
+        "labels": {
+            "menu": "Menu",
+            "product_box": "Product box",
+            "product_name": "Product name",
+            "price": "Price",
+            "short_desc": "Short description",
+            "currency": "Currency",
+            "dollar": "Dollar",
+            "status": "Status",
+            "image": "Upload Image"
+        },
+        "buttons": {
+            "save_changes": "Save Changes",
+            "add_cat": "Add category",
+            "close": "Close"
+        },
+        "delete_category_confirm": "Are you sure you want to delete this category %categoryName%? Note: Deleting a category leads to deleting all it's products",
+        "delete_product_confirm": "Are you sure you want to delete product %productName%?",
+        "duplicate_category": "A category with name '%categoryName%' already exists.",
+        "deleted_category": "Category %categoryName% was deleted",
+        "deleted_product": "Product %productName% was deleted"
+    },
+    "staffPage": {
+        "title": "Staff",
+        "delete_confirm": "Are you sure you want to delete this member?",
+        "delete_msg": "Deleted staff member %staffName%",
+        "labels" : {
+            "username": "Username",
+            "email" : "Email",
+            "type": "Type"
+        },
+        "buttons": {
+            "add_staff": "Add Staff"
+        }
+    },
+    "openingHoursPage": {
+        "title": "Opening Hours"
+    },
+    "myAccountPage": {
+        "title": "Your Account"
+    },
+    "addRestaurantPage": {
+        "title": "Add Restaurant",
+        "message": {
+            "failed_add_restaurant": "The email address provided already exists"
+        }
+    },
+    "restaurantsPage": {
+        "title": "Restaurants",
+        "labels": {
+            "name": "Name",
+            "restaurantId": "Restaurant ID",
+            "locationId": "Location ID",
+            "isChain": "is Chain?",
+            "status": "Status",
+            "staff": "Staff"
+        },
+        "buttons": {
+            "update_password": "Update Password"
+        },
+        "message": {
+            "no_staff": "Please select a staff member",
+            "empty_password": "Password cannot be empty",
+            "delete_confirm": "Are you sure you want to delete restaurant '%displayName%'?",
+            "delete_success": "Restaurant '%displayName%' successfully deleted."
+        }
+    },
+    "statsPage": {
+        "title": "Statistics",
+        "labels": {
+            "bestsellingproducts": "Best Selling Products",
+            "bestcustomers": "Best Customers",
+            "nooftimesorderd": "Number of times ordered",
+            "no_of_customers": "Number Of Customers",
+            "no_of_orders_last_30_days": "Number Of Orders Last 30 days"
+        },
+        "message": {
+            "not_enough_info": "Not enough information to generate report"
+        }
+    },
+    "errorPage": {
+        "message": {
+            "404_not_found": "Sorry, an error has occured, Requested page not found!",
+            "back": "Go back to home page"
+        }
+    },
+    "manageLocationsPage": {
+        "title": "Manage Loctions",
+        "message": {
+            "delete_confirm": "Are you sure you want to delete location '%name%'?",
+            "delete_success": "Location '%name%' successfully deleted."
+        },
+        "buttons": {
+            "add_location": "Add Restaurant Location"
+        }
+    },
+    "addLocationPage": {
+        "title": "Add Location"
+    },
+    "modals": {
+        "newMenuCategory": {
+            "create": "Create new menu category",
+            "header": "Category name",
+            "buttons": {
+                "create": "Create",
+                "cancel": "Cancel"
+            }
+        },
+        "updatePassword": {
+            "title": "Update password for staff",
+            "header": "New password"
+        },
+        "newStaffMember": {
+            "create": "Add new staff member",
+            "header": "Waiter"
+        },
+        "newTable": {
+            "create": "Add table",
+            "header": "Table name"
+        },
+        "clientsMassNotifications": {
+            "title": "Compose message to send to clients",
+            "header": "Message"
+        },
+        "ordersAcceptPrompt": {
+            "title": "Time to delivery",
+            "header": "Estimate time <br />(Examples: 1 hour and 20 minutes, 45 minutes)",
+            "default": "30 minutes"
+        }
+    },
+    "formFields" : {
+        "staffClass": "Staff Type",
+        "type": "Staff Type",
+        "staffName": "Username",
+        "staffFirstName": "First Name",
+        "staffLastName": "Last Name",
+        "staffPassword": "Password",
+        "pass": "Password",
+        "locationId": "Location",
+        "staffConfirmPassword": "Confirm Password",
+        "passConfirm": "Confirm Password",
+        "email": "Email",
+        "managerlogin": "Email",
+        "displayName": "Restaurant Name",
+        "minDeliveryFee": "Minimum Delivery Fee",
+        "deliveryFee": "Delivery Fee",
+        "locationName": "Location Name",
+        "locationDisplayName": "Location Name",
+        "isChain": "Is chain?"
+    },
+    "common": {
+        "labels": {
+            "selectLocation": "Select Location",
+            "changes_saved": "Changes saved successfully",
+            "changes_failure": "Could not complete your request, please try again later",
+            "saving": "Saving...",
+            "loading": "Loading...",
+            "uploading": "Uploading...",
+            "sunday": "Sunday",
+            "monday": "Monday",
+            "tuesday": "Tuesday",
+            "wednesday": "Wednesday",
+            "thursday": "Thursday",
+            "friday": "Friday",
+            "saturday": "Saturday",
+            "open": "Open",
+            "closed": "Closed",
+            "midnight": "Midnight",
+            "here": "here",
+            "name": "Name",
+            "tel": "Telephone",
+            "mail": "Email",
+            "delivery_address": "Delivery Address",
+            "additionalInfo": "Additional information",
+            "total_due": "Total",
+            "status": "Status",
+            "available": "Available",
+            "not_available": "Not Available",
+            "no_restaurants": "No restaurants",
+            "date": "Date",
+            "type": "Type",
+            "yes": "Yes",
+            "no": "No",
+            "chainmanager": "Chain Manager",
+            "manager": "Manager",
+            "locationmanager": "Location Manager",
+            "operator": "Operator",
+            "nothing_found": "Nothing Found",
+            "upload_failed": "Upload of image has failed",
+            "upload_success": "Upload successful",
+            "persistence_error": "We apologize but server is encountering issue. If problem persists please contact your administrator."
+        },
+        "buttons": {
+            "save_changes": "Save Changes",
+            "create": "Create",
+            "cancel": "Cancel",
+            "edit": "Edit",
+            "delete": "Delete",
+            "send": "Send",
+            "next_step": "Next Step",
+            "submit": "Submit",
+            "add_product": "Add Product",
+            "update": "Update",
+            "collapse": "Collapse",
+            "search": "Search",
+            "show": "Show",
+            "legend": "Legend",
+            "upload": "Upload"
+        },
+        "title": {
+            "selectLocation": "Select Location"
+        }
+    },
+    "notifications" : {
+        "orders" : "(%x%) New Orders"
+    },
+    "Thisfieldisrequired": "This field is required.",
+    "Pleaseenteravalidemailaddress": "Please enter a valid email address.",
+    "DoesnotmatchstaffPassword": "Does not match Password.",
+    "Doesnotmatchpass": "Does not match Password."
+}

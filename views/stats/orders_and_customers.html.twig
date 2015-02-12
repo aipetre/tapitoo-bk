@@ -1,0 +1,25 @@
+<div class="span12">
+
+    <div class="widget big-stats-container stacked">
+
+        <div class="widget-content">
+
+            <div id="big_stats" class="cf">
+                <div class="stat">
+                    <h4 data-i18n="statsPage.labels.no_of_orders_last_30_days"></h4>
+                    {% include 'assets/messages.html.twig' with { 'error': view.numbersOfOrdersServedThisMonth.error} %}
+                    <span class="value">{{ view.numbersOfOrdersServedThisMonth.value }}</span>
+                </div> <!-- .stat -->
+
+                <div class="stat">
+                    <h4 data-i18n="statsPage.labels.no_of_customers"></h4>
+                    {% include 'assets/messages.html.twig' with { 'error': view.numberOfClients.error} %}
+                    <span class="value">{{ view.numberOfClients.value }}</span>
+                </div> <!-- .stat -->
+            </div>
+
+        </div> <!-- /widget-content -->
+
+    </div> <!-- /widget -->
+
+</div> <!-- /span12 -->

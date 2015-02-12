@@ -1,0 +1,21 @@
+{% extends 'layout.html.twig' %}
+{% block customstylesheets %}
+    <link href="/css/pages/reports.css" rel="stylesheet">
+{% endblock %}
+
+{% block customjavascript %}
+    <script type="text/javascript" src="/js/manageStats/stats.js"></script>
+    <script type="text/javascript" src="/js/restaurantLocationSelect.js"></script>
+{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html.twig' with {restaurant:'', clients:'open', orders:'open', stats:'active', staff:'open'} %}
+{% endblock %}
+
+{% block content %}
+    <div class="main" id="statsPage">
+        <div class="container">
+            {% include 'assets/locationSelect.html.twig' with {'view' : view, 'error': error} %}
+        </div><!-- container -->
+    </div> <!-- /main -->
+{% endblock %}

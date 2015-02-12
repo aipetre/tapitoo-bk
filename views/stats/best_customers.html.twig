@@ -1,0 +1,43 @@
+<div class="span6">
+
+    <div class="widget stacked widget-table">
+
+        <div class="widget-header">
+            <span class="icon-file"></span>
+            <h3 data-i18n="statsPage.labels.bestcustomers"></h3>
+        </div> <!-- .widget-header -->
+
+        <div class="widget-content">
+
+            {% if (view.bestCustomers.length > 0) %}
+
+                <table class="table table-bordered table-striped">
+
+                    <thead><tr>
+                        <th data-i18n="userPage.tableHeader.name"></th>
+                        <th data-i18n="userPage.tableHeader.phone_number"></th>
+                        <th data-i18n="userPage.tableHeader.mail"></th>
+                        <th data-i18n="statsPage.labels.nooftimesorderd"></th>
+                    </tr></thead>
+
+                    <tbody>
+                    {% for key,value in view.bestCustomers %}
+                        <tr>
+                            <td class="description">{{ value.client.name }}</td>
+                            <td class="description">{{ value.client.tel }}</td>
+                            <td class="description">{{ value.client.mail }}</td>
+                            <td class="value"><span>{{ value.noOfTimersOrdered }}</span></td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            {% else %}
+                {% include 'assets/messages.html.twig' with { 'error': view.bestCustomers.error} %}
+            {% endif %}
+
+        </div> <!-- .widget-content -->
+
+    </div>
+
+</div>

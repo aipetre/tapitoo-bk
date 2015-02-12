@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+{% block customstylesheets %}
+
+{% endblock %}
+
+{% block customjavascript %}
+    <script type="text/javascript" src="/js/manageDeliveryFees/manage.deliveryfees.js"></script>
+    <script type="text/javascript" src="/js/restaurantLocationSelect.js"></script>
+{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html.twig' with {restaurant:'active', clients:'open', orders:'open', stats:'', staff:'open'} %}
+{% endblock %}
+
+{% block content %}
+    <div class="main" id="deliveryFeePage">
+
+        <div class="container">
+            {% include 'assets/locationSelect.html.twig' with {'view' : view, 'error': error} %}
+        </div>
+        <!-- container -->
+
+    </div> <!-- /main -->
+{% endblock %}

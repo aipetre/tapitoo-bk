@@ -1,0 +1,165 @@
+{% extends 'layout.html.twig' %}
+
+{% block customstylesheets %}
+    <link href="/js/plugins/lightbox/themes/evolution-dark/jquery.lightbox.css" rel="stylesheet">
+{% endblock %}
+
+{% block customjavascript %}
+    <script type="text/javascript" src="/js/manageMenu/manage.menu.js"></script>
+    <script src="/js/Scripts/jquery.msgBox.js"></script>
+    <script type="text/javascript">
+        document.oldProducts = {{ oldProducts|json_encode }};
+    </script>
+{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html.twig' with {restaurant:'active', clients:'open', orders:'open', stats:'', staff:'open'} %}
+{% endblock %}
+
+{% if (globals.type == "manager" and globals.isChain == "true") %}
+    {% set canDelete =  false%}
+    {% set canAdd =  false%}
+    {% set readonly =  'readonly="readonly"'%}
+    {% set disabled =  'disabled="disabled"'%}
+    disabled
+{% else %}
+    {% set canDelete =  true%}
+    {% set canAdd =  true%}
+    {% set readonly =  ''%}
+    {% set disabled =  ''%}
+{% endif %}
+
+{% block content %}
+    <div class="main" id="menuPage">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="span12">
+
+                    <div class="widget stacked">
+
+                        <div class="widget-header">
+                            <i class="icon-pencil"></i>
+
+                            <h3 data-i18n="menuPage.title"></h3>
+                        </div>
+                        <!-- /widget-header -->
+
+                        <div class="widget-content">
+
+                            <div class="modal fade hide" id="myModal">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h3 data-i18n="menuPage.labels.product_box">Product box</h3>
+                                </div>
+                                <div class="modal-body" id="modalMine">
+                                    <fieldset>
+                                        <div class="control-group">
+                                            <label class="control-label" for="name" data-i18n="menuPage.labels.product_name"></label>
+                                            <div class="controls">
+                                                <input type="text" class="input-large" name="name" id="productNameModal" {{ readonly }}>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="email" data-i18n="menuPage.labels.price"></label>
+
+                                            <div class="controls">
+                                                <input type="text" class="input-large" name="email" id="productPriceModal" {{ readonly }}>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            <label class="control-label" for="message" data-i18n="menuPage.labels.short_desc"></label>
+
+                                            <div class="controls">
+                                                <textarea class="span4" name="message" id="productShortDescriptionModal"rows="4" {{ readonly }}></textarea>
+                                            </div>
+                                        </div>
+
+                                        {#<div class="control-group">#}
+                                            {#<label class="control-label" for="validateSelect"#}
+                                                   {#data-i18n="menuPage.labels.currency">Currency</label>#}
+
+                                            {#<div class="controls">#}
+                                                {#<select id="validateSelect" name="validateSelect">#}
+                                                    {#<option value="Dollar" data-i18n="menuPage.labels.dollar">Dollar#}
+                                                    {#</option>#}
+                                                {#</select>#}
+                                            {#</div>#}
+                                        {#</div>#}
+
+                                        <div class="control-group">
+                                            <label class="control-label" for="validateSelect" data-i18n="menuPage.labels.status"></label>
+
+                                            <div class="controls">
+                                            <select id="productStatusModal" name="productStatusModal">
+                                                <option value="true" data-i18n="common.labels.available"></option>
+                                                <option value="false" data-i18n="common.labels.not_available"></option>
+                                            </select>
+                                            </div>
+                                        </div>
+                                        <div class="control-group">
+                                            {% include 'assets/loader.html.twig'  with { 'divId' : 'ImageUploadForm', 'datai18n': "common.labels.uploading"} %}
+                                            {% include 'assets/messages.html.twig' with { 'divId' : 'ImageUploadForm'} %}
+                                            <label class="control-label" for="validateSelect" data-i18n="menuPage.labels.image"></label>
+
+                                            <div class="controls">
+                                                <input type="file" id="uploadImage" name="uploadImage" {{ disabled }} />
+                                                <button alt="uploadImage" class="btn btn-medium btn-tertiary " data-i18n="common.buttons.upload"></button>
+                                            </div>
+                                            <input type="hidden" id="productImageModal"  name="productImageModal" />
+                                            <input type="hidden" id="productSiteImageModal"  name="productSiteImageModal" />
+                                        </div>
+                                    </fieldset>
+                                    <div class="modal-footer">
+                                        <a class="btn" id="closeAddProduct" data-dismiss="modal"
+                                           data-i18n="menuPage.buttons.close">Close</a>
+                                        <a class="btn btn-primary" id="saveChangesProduct" data-dismiss="modal"
+                                           data-i18n="menuPage.buttons.save_changes">Save changes</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% include 'assets/loader.html.twig'  with { 'oneAjaxOnPage': 'true', 'divId' : 'menuForm'} %}
+                            {% include 'assets/messages.html.twig' with { 'error': error} %}
+
+                            <section id="accordions">
+                                <a class="btn btn-medium btn-primary" id="saveChangesMenu" data-i18n="menuPage.buttons.save_changes"></a>
+                                </br>
+                                </br>
+                                {% if canAdd %}
+                                <button alt="addCategory" class="btn btn-medium btn-secondary" data-i18n="menuPage.buttons.add_cat"></button>
+                                {% endif %}
+                                <button id="collapse" class="btn btn-medium btn-secondary" data-i18n="common.buttons.collapse"></button>
+                                <button id="show" class="btn btn-medium btn-secondary" data-i18n="common.buttons.show"></button>
+                                </br></br>
+                                <div id="menuContent" alt="sortable">
+                                    {% for key,value in categories %}
+
+                                        {% include 'category.html.twig' with {'categoryIndex':key,'categoryDetails': value, 'productsArray': attribute(allProductsArray,key), "canDelete": canDelete, "canAdd": canAdd } %}
+
+                                    {% endfor %}
+                                </div>
+
+                            </section>
+
+                        </div>
+                        <!-- widget-header -->
+                    </div>
+                    <!-- widget stacked -->
+
+                </div>
+                <!-- span12-->
+
+            </div><!-- row -->
+
+        </div>
+    </div>
+{% endblock %}
+
+{% block customjavascriptsend %}
+    <script src="/js/plugins/hoverIntent/jquery.hoverIntent.minified.js"></script>
+    <script src="/js/plugins/lightbox/jquery.lightbox.min.js"></script>
+    <script src="/js/demo/gallery.js"></script>
+{% endblock %}
+

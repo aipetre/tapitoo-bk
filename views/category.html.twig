@@ -1,0 +1,28 @@
+<div class="accordion" catName="{{ categoryDetails.categoryName }}" catId="{{ categoryDetails.categoryId }}">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a value="a{{ categoryIndex }}" class="accordion-toggle" data-toggle="collapse" data-parent="#basic-accordion" href="#a{{ categoryIndex }}">
+                <span alt="visibleText" id="{{ categoryDetails.categoryName|replace({' ': ''}) }}-visible">{{ categoryDetails.categoryName }}</span>
+                {% if canDelete %}
+                <button style='float:right' alt='deleteCategoryButton' class="btn btn-medium btn-danger" data-i18n="common.buttons.delete"></button>
+                {% endif %}
+                {% if canAdd %}
+                <button style='float:right' alt="accordionButtonAddProduct" class="btn btn-medium btn-tertiary" data-i18n="common.buttons.add_product"></button>
+                {% endif %}
+                {#<button style='float:right' alt="editCategoryButton" class="btn btn-medium btn-tertiary" data-i18n="common.buttons.edit">Edit</button>#}
+            </a>
+        </div>
+        <div id="a{{ categoryIndex }}" class="accordion-body in collapse">
+            <div class="accordion-inner">
+                <table class="table table-striped table-bordered">
+                    <tbody id="products-inner" catName="{{ categoryDetails.categoryName }}" catId="{{ categoryDetails.categoryId }}" class="inventie">
+
+                    {% for key,value in productsArray %}
+                        {% include 'product.html.twig' with {'product' : value} %}
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>	

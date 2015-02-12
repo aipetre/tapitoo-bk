@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+{% block customstylesheets %}
+{% endblock %}
+
+{% block customjavascript %}
+    <script src="/js/Scripts/jquery.msgBox.js"></script>
+    <script type="text/javascript" src="/js/manageStaff/manage.staff.js"></script>
+    <script type="text/javascript" src="/js/restaurantLocationSelect.js"></script>
+{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html.twig' with {restaurant:'', clients:'open', orders:'open', stats:'', staff:'active'} %}
+{% endblock %}
+
+{% block content %}
+    <div class="main" id="staffPage">
+
+        <div class="container">
+            {% include 'assets/locationSelect.html.twig' with {'view' : view, 'error': error} %}
+        </div>
+        <!-- container -->
+
+    </div> <!-- /main -->
+{% endblock %}

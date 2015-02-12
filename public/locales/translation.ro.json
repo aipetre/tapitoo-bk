@@ -1,0 +1,420 @@
+{
+    "mainnav": {
+        "restaurant": "Restaurant",
+        "opening_hours": "Program",
+        "clients": "Clienti",
+        "stats": "Statistici",
+        "overview_stats": "Sumar",
+        "clients_stats": "Clienti",
+        "reservations_stats": "Reservari",
+        "orders_stats": "Comenzi",
+        "staff_stats": "Personal",
+        "feedback": "Parerea ta",
+        "3rd_party": "Terti",
+        "home": "Acasa",
+        "users": "Utilizatori",
+        "menu": "Gestionare meniu",
+        "reservations": "Rezervari",
+        "commands": "Comenzi",
+        "map": "Harta",
+        "tables": "Mese",
+        "delivery": "Zona de livrare",
+        "delivery_fees": "Taxe de livrare",
+        "staff": "Personal",
+        "add_staff": "Adauga Personal",
+        "edit_staff": "Editeaza Personal",
+        "my_account": "Contul meu",
+        "coming_soon": "In curand",
+        "coupons_discounts": "Coupoane si discounturi",
+        "events": "Evenimente",
+        "locations": "Locatie",
+        "mange_locations": "Gestiune locatii",
+        "view_locations_list": "Listare",
+        "add_location": "Adauga Locatie",
+        "comming_soon": "In curand",
+        "add_restaurant": "Adauga Restaurant",
+        "restaurants": "Restaurante"
+    },
+    "loginPage": {
+        "restauranName": "Nume Restaurant",
+        "firstName": "Prenume",
+        "lastName": "Nume",
+        "email": "Email",
+        "password": "Parola",
+        "confirm_password": "Confirmare parola",
+        "url": "Website (optional)",
+        "phone_number": "Numar telefon",
+        "country": "Tara",
+        "city": "Oras",
+        "address1": "Adresa 1",
+        "address2": "Adresa 2",
+        "postal_code": "Cod Postal",
+        "signup_success": "Contul dumneavoaastra a fost inregistrat cu succes. Va vom contacta cu datele de logare.",
+        "go_to_login": "Navigati la",
+        "login_link_text": "Pagina de logare",
+        "invalid_login": "Utilizatorul sau parola introdusa este invalida",
+        "not_active": "Restaurantul pe care doriti sa il accesati este inchis",
+        "username": "Utilizator",
+        "password": "Parola"
+    },
+    "topRightBar": {
+        "settings": "Setari",
+        "acc_settings": "Setari Cont",
+        "private_settings": "Setari Confidentialitate",
+        "help": "Ajutor",
+        "my_profile": "Profilul meu",
+        "my_account": "Contul meu",
+        "my_groups": "Grupurile mele",
+        "logout": "Delogare",
+        "search": "Cauta",
+        "lng": "Selecteaza limba"
+    },
+    "pagination": {
+        "prev": "Precedenta",
+        "next": "Urmatoarea"
+    },
+    "reservationPage": {
+        "title": "Rezervari",
+        "buttons": {
+            "pending": "In asteptare",
+            "accepted": "Acceptate",
+            "rejected": "Respinse"
+        },
+        "tableColumn": {
+            "name": "Nume",
+            "persons": "Persoane",
+            "date": "Data",
+            "hour": "Ora"
+        }
+    },
+    "ordersPage": {
+        "title": "Comenzi",
+        "order_update": "Comanda a fost actualizata cu succes",
+        "buttons": {
+            "accept_order": "Accepta",
+            "launch_order": "Trimite",
+            "deny_order": "Respinge",
+            "close_order": "Inchide"
+        },
+        "labels": {
+            "delivery": "Livrare",
+            "pickup": "De la local",
+            "order": "Order",
+            "new": "Nou",
+            "accepted": "Acceptata",
+            "denied": "Respins",
+            "launched": "Lansata",
+            "closed": "Inchisa",
+            "show_map": "Arata harta"
+        },
+        "tableHeader": {
+            "product": "Produs",
+            "quantity": "Cantitate",
+            "price": "Pret",
+            "total": "Total"
+        },
+        "message": {
+            "no_orders": "Nu exista comenzi",
+            "accepted_order": "Comanda dumneavoastra a fost acceptata si va fi livrata in %timeToDelivery%!",
+            "denied_order": "Comanda dumneavoastra a fost respinsa!!",
+            "closed_order": "Comanda dumneavoastra a fost inchisa. Va multumim si va asteptam sa mai comandati de la noi!",
+            "notification_sent": "Comanda a fost actualizata si clientul a fost notificat.",
+            "notification_error": "Comanda a fost actualizata, dar clientul nu a fost notificat."
+        }
+    },
+    "mapPage": {
+        "title": "Setare locatie",
+        "addLocation": "Adauga locatie",
+        "saveLocation": "Salveaza locatia",
+        "findLocation": "Cauta locatia",
+        "tip_location": "Pont: Apasati pe butonul 'Adauga locatie' pentru a adauga un marker pe harta si a va cauta manual locatia sau scrieti adresa mai jos si apasati pe butonul de 'Cauta locatia'",
+        "location_fail": "Nu s-a putut gasi locatia",
+        "no_results": "Nici un rezultat pentru adresa data",
+        "labels": {
+            "latitude": "Latitudine",
+            "longitude": "Longitudine"
+        },
+        "messages": {
+            "fileCreation": "Crearea fisierului pentru a salva datele a esuat",
+            "fileUpdate": "Actualizarea datelor a esuat"
+        }
+    },
+    "deliveryPage": {
+        "title": "Setare zona de livrare",
+        "saveDelivery": "Salvati zone",
+        "warningNoLocation": "Nu ati setat locatia resturantului. Setati locatia in pagina Restaurant > Locatie. Mergeti la pagina"
+    },
+    "deliveryFeePage": {
+        "title": "Taxe de livrare",
+        "saveFees": "Salveaza taxe",
+        "labels": {
+            "min_delivery_fee": "Comanda minima",
+            "delivery_fee": "Taxa comanda"
+        }
+    },
+    "homePage": {
+        "labels": {
+            "quick_stats": "Statistici",
+            "qr_code": "Codul QR",
+            "app_visits": "Vizite aplicatie",
+            "new_visits": "Vizite noi",
+            "average_time_on_app": "Timp mediu petrecut pe aplicatie",
+            "print_qr_code": "Printeaza codul QA",
+            "qr_code_alternative": "Ca alternativa puteti salva si apoi printa imaginea de jos.",
+            "chart": "Grafic"
+        }
+    },
+    "userPage": {
+        "title": "Comunicare si statistici alte utilizatorilor",
+        "labels": {
+            "actions": "Actiuni",
+            "users": "Clienti",
+            "search_name": "Cauta dupa nume"
+        },
+        "buttons": {
+            "send_sms": "Trimite SMS uri",
+            "send_mass_notification": "Trimite notificatii"
+        },
+        "tableHeader": {
+            "name": "Nume",
+            "locationName": "Locatie",
+            "occupations": "Ocupatie",
+            "phone_number": "Numar de telefon",
+            "birthday": "Zi de naster",
+            "location": "Locatie",
+            "facebook": "Facebook",
+            "date": "Data",
+            "mail": "Email"
+        },
+        "message": {
+            "no_devices": "Nu exista telefoane valide Android sau iOS pentru a trimite notificatii.",
+            "empty_text": "Mesajul nu poate fi gol.",
+            "no_clients": "Nu exista clienti pentru a trimite notificari.",
+            "push_notifications_failure": "Notificariile nu au putut fi trimise in acest moment, va rugam incercati mai tarziu.",
+            "push_notifications_success": "Notificatiile au fost trimise.",
+            "check_ios_certificates": "Uploadati certificatele pentru aplicatiile iOS!",
+            "no_ios_notification": "Notificarea pentru iOS a esuat"
+        }
+    },
+    "menuPage": {
+        "title" : "Gestiune Meniu",
+        "labels": {
+            "menu": "Meniu",
+            "product_box": "Produs",
+            "product_name": "Nume produs",
+            "price": "Pret",
+            "short_desc": "Descriere",
+            "currency": "Valuta",
+            "dollar": "Dolari",
+            "status": "Status",
+            "image": "Uploadeza imagine"
+        },
+        "buttons": {
+            "save_changes": "Salveaza",
+            "add_cat": "Adauga Categorie",
+            "close": "Inchide"
+        },
+        "delete_category_confirm": "Sunteti sigur ca doriti sa stergeti categoria %categoryName%? Atentie: Stergerea unei category duce la stergerea produselor din aceea categorie.",
+        "delete_product_confirm": "Sunteti sigur ca doriti sa stergeti produsul %productName%?",
+        "duplicate_category": "Categoria cu numele '%categoryName%' exista deja.",
+        "deleted_category": "Categoria %categoryName% a fost stersa.",
+        "deleted_product": "Produsul %productName% a fost sters."
+    },
+    "staffPage": {
+        "title": "Personal",
+        "delete_confirm": "Sunteti sigur ca doriti sa stergeti acest personal?",
+        "delete_msg": "Personalul %staffName% a fost sters",
+        "labels" : {
+            "username": "Username",
+            "email" : "Email",
+            "type": "Tip"
+        },
+        "buttons": {
+            "add_staff": "Adauga Personal"
+        }
+    },
+    "openingHoursPage": {
+        "title": "Program"
+    },
+    "myAccountPage": {
+        "title": "Contul meu"
+    },
+    "addRestaurantPage": {
+        "title": "Adauga Restaurant",
+        "message": {
+            "failed_add_restaurant": "Adresa de email folosita exista deja in sistem"
+        }
+    },
+    "restaurantsPage": {
+        "title": "Restaurante",
+        "labels": {
+            "name": "Nume",
+            "restaurantId": "ID Restaurant",
+            "locationId": "ID Locatie",
+            "isChain": "este Lant?",
+            "status": "Status",
+            "staff": "Personal"
+        },
+        "buttons": {
+            "update_password": "Actualizare parola"
+        },
+        "message": {
+            "no_staff": "Va rugam selectati un personal",
+            "empty_password": "Parola nu poate fi goala",
+            "delete_confirm": "Sunteti sigur ca vreti sa stergeti restaurantul '%displayName%'?",
+            "delete_success": "Restaurantul '%displayName%' a fost sters."
+        }
+    },
+    "statsPage": {
+        "title": "Statistici",
+        "labels": {
+            "bestsellingproducts": "Cele mai vandute produse",
+            "bestcustomers": "Cei mai frecventi clienti",
+            "nooftimesorderd": "# de comenzi",
+            "no_of_customers": "Numar de clienti",
+            "no_of_orders_last_30_days": "Numarul comenzilor in ultimele 30 de zile"
+        },
+        "message": {
+            "not_enough_info": "Not enough information to generate report"
+        }
+    },
+    "errorPage": {
+        "message": {
+            "404_not_found": "Ne pare rau pagina ceruta nu exista!",
+            "back": "Inapoi la pagina de garda"
+        }
+    },
+    "manageLocationsPage": {
+        "title": "Gestiune locatii",
+        "message": {
+            "delete_confirm": "Are you sure you want to delete location '%name%'?",
+            "delete_success": "Location '%name%' successfully deleted."
+        },
+        "buttons": {
+            "add_location": "Adauga Locatie"
+        }
+    },
+    "addLocationPage": {
+        "title": "Adauga Locatie"
+    },
+    "modals": {
+        "newMenuCategory": {
+            "create": "Creare categorie noua",
+            "header": "Nume categorie",
+            "buttons": {
+                "create": "Creare",
+                "cancel": "Anuleaza"
+            }
+        },
+        "updatePassword": {
+            "title": "Actualizeaza parola pentru personal",
+            "header": "Noua parola"
+        },
+        "newStaffMember": {
+            "create": "Adauga personal",
+            "header": "Nume personale"
+        },
+        "newTable": {
+            "create": "Adauga masa",
+            "header": "Nume masa"
+        },
+        "clientsMassNotifications": {
+            "title": "Compunere mesaj catre clienti",
+            "header": "Mesaj"
+        },
+        "ordersAcceptPrompt": {
+            "title": "Timp de livrare",
+            "header": "Timp estimat <br />(Exemple: 1 ora si 20 de minute, 45 de minute)",
+            "default": "30 de minute"
+        }
+    },
+    "formFields" : {
+        "staffClass": "Tip cont",
+        "type": "Tip cont",
+        "staffName": "Username",
+        "staffFirstName": "Prenume",
+        "staffLastName": "Nume",
+        "staffPassword": "Parola",
+        "pass": "Parola",
+        "locationId": "Locatie",
+        "staffConfirmPassword": "Confirma Parola",
+        "passConfirm": "Confirma Parola",
+        "email": "Adresa Email",
+        "managerlogin": "Adresa Email",
+        "displayName": "Nume Restaurant",
+        "minDeliveryFee": "Comanda minima",
+        "deliveryFee": "Taxa comanda",
+        "locationName": "Nume Locatie",
+        "locationDisplayName": "Nume Locatie",
+        "isChain": "Este franciza?"
+    },
+    "common": {
+        "labels": {
+            "selectLocation": "Selectati locatie",
+            "changes_saved": "Schimbarile au fost salvate cu success",
+            "changes_failure": "Cererea dumneavoastra nu a putut fi completata, va rugam incercati mai tarziu",
+            "saving": "Salvare...",
+            "loading": "Loading...",
+            "sunday": "Duminica",
+            "monday": "Luni",
+            "tuesday": "Marti",
+            "wednesday": "Miercuri",
+            "thursday": "Joi",
+            "friday": "Vineri",
+            "saturday": "Sambata",
+            "open": "Deschis",
+            "closed": "Inchis",
+            "midnight": "Miezul noaptii",
+            "here": "aici",
+            "name": "Nume",
+            "tel": "Telefon",
+            "mail": "Email",
+            "delivery_address": "Adresa de livrare",
+            "additionalInfo": "Detalii comanda",
+            "total_due": "Total Plata",
+            "status": "Status",
+            "available": "Disponibil",
+            "not_available": "Nedisponibil",
+            "no_restaurants": "Nici un restaurant",
+            "date": "Data",
+            "type": "Tip",
+            "yes": "Da",
+            "no": "Nu",
+            "chainmanager": "Manager lant restaurant",
+            "manager": "Manager",
+            "locationmanager": "Manager de locattie",
+            "operator": "Operator",
+            "nothing_found": "Nici un rezultat",
+            "upload_failed": "Fisierul nu a putut fi uploadat",
+            "upload_success": "Fisierul a fost uploadat",
+            "persistence_error": "Serverul nu este disponibil. Daca problema continua va rugam contactati administratorul"
+        },
+        "buttons": {
+            "save_changes": "Salveaza",
+            "create": "Creare",
+            "cancel": "Anuleaza",
+            "edit": "Editeaza",
+            "delete": "Sterge",
+            "send": "Trimite",
+            "next_step": "Urmatorul",
+            "submit": "Submit",
+            "add_product": "Adauga Produs",
+            "update": "Actualizeaza",
+            "collapse": "Comprima",
+            "search": "Cautare",
+            "show": "Arata",
+            "legend": "Legenda",
+            "upload": "Uploadeza"
+        },
+        "title": {
+            "selectLocation": "Selecteaza Locatie"
+        }
+    },
+    "notifications" : {
+        "orders" : "(%x%) Comenzi noi"
+    },
+    "Thisfieldisrequired": "Acest camp este obligatoriu.",
+    "Pleaseenteravalidemailaddress": "Introduceti o adresa de email valida.",
+    "DoesnotmatchstaffPassword": "Valoarea introdusa nu este identica cu Parola",
+    "Doesnotmatchpass": "Valoarea introdusa nu este identica cu Parola"
+}

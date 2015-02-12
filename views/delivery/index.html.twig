@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+
+{% block customstylesheets %}
+    <style>
+        html, body, #map-canvas {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+        /* Bootstrap fixes */
+        #map-canvas img {
+            max-width: none;
+        }
+
+        #map-canvas label {
+            width: auto; display:inline;
+        }
+    </style>
+{% endblock %}
+
+{% block customjavascript %}
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <script type="text/javascript" src="/js/manageDeliveryArea/manage.deliveryarea.js"></script>
+    <script type="text/javascript" src="/js/restaurantLocationSelect.js"></script>
+{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html.twig' with {restaurant:'active', clients:'open', orders:'open', stats:'', staff:'open'} %}
+{% endblock %}
+
+{% block content %}
+    <div class="main" id="deliveryPage">
+
+        <div class="container">
+            {% include 'assets/locationSelect.html.twig' with {'view' : view, 'error': error} %}
+        </div>
+        <!-- container -->
+
+    </div> <!-- /main -->
+{% endblock %}

@@ -1,0 +1,48 @@
+<table class="table table-bordered table-striped table-highlight" id="paginationTable">
+    <thead>
+    <tr>
+        <th><input type="checkbox" id="selectAll" /></th>
+        <th data-i18n="userPage.tableHeader.name"></th>
+        <th data-i18n="userPage.tableHeader.locationName"></th>
+        <th data-i18n="userPage.tableHeader.phone_number"></th>
+        {#<th data-i18n="userPage.tableHeader.birthday"></th>#}
+        {#<th data-i18n="userPage.tableHeader.location"></th>#}
+        <th data-i18n="userPage.tableHeader.mail"></th>
+        {#<th data-i18n="userPage.tableHeader.facebook"></th>#}
+        {#<th data-i18n="userPage.tableHeader.date"></th>#}
+    </tr>
+    </thead>
+    <tbody>
+    {% for key,value in users %}
+        <tr>
+            <td><input type="checkbox" name="users[]" value='{{ value|json_encode() }}' /></td>
+            <td>{{ value.name }}</td>
+            <th>{{  attribute(locations, value.locationId) }}</th>
+            <td>{{ value.tel }}</td>
+            {#<td>{{ value.birthday }}</td>#}
+            {#<td>{{ value.location }}</td>#}
+            <td>{{ value.mail }}</td>
+            {#<td>{{ value.date }}</td>#}
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<!-- the input fields that will hold the variables we will use -->
+<input type='hidden' id='current_page'/>
+<div class="pagination" id="page_navigation"></div>
+<script type="text/javascript">
+    // Select all checkboxes
+    $("#selectAll").bind("click", function (e) {
+        if (this.checked) {
+            // check all.
+            $("input[name=users\\[\\]]").each(function() {
+                this.checked = true;
+            });
+        } else {
+            // un check all.
+            $("input[name=users\\[\\]]").each(function() {
+                this.checked = false;
+            });
+        }
+    });
+</script>

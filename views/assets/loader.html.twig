@@ -1,0 +1,17 @@
+{% if datai18n is not defined %}
+    {% set datai18n = "common.labels.saving" %}
+{% endif %}
+<div id="ajaxLoader{{ divId }}" style="clear: both; display: none; margin-bottom: 10px;">
+    <img src="/img/ajaxSpinner.gif">&nbsp;&nbsp;&nbsp;<span
+            data-i18n="{{ datai18n }}"></span>
+</div>
+{% if oneAjaxOnPage is defined %}
+    <script type="text/javascript">
+        var div = $('#ajaxLoader{{ divId }}').hide();
+        $(document).ajaxStart(function () {
+            div.show();
+        }).ajaxStop(function () {
+            div.hide();
+        });
+    </script>
+{% endif %}

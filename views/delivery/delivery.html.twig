@@ -1,0 +1,45 @@
+<script type="text/javascript">
+    // Keep this in document context.
+    document.noLocation = "{{ view.warning }}";
+    document.locationLat = "{{ view.locationLat }}";
+    document.locationLng = "{{ view.locationLng }}";
+
+</script>
+<script type="text/javascript" src="/js/manageDeliveryArea/deliveryAreaLocation.js"></script>
+<div class="row">
+    <div class="span12">
+        <div class="widget stacked">
+            <div class="widget-header">
+                <i class="icon-qrcode"></i>
+                <h3 data-i18n="deliveryPage.title"></h3>
+            </div><!-- /widget-header -->
+            <div class="widget-content">
+                {% if view.warning %}
+                    <span id="messages" class="messages" style="clear: both; margin-bottom: 10px;" data-i18n="deliveryPage.warningNoLocation"></span>&nbsp;<a href="/admin/location" data-i18n="common.labels.here"></a>
+                {% else %}
+                    {% include 'assets/loader.html.twig'  with { 'divId' : 'DeliveryAreaForm'} %}
+                    {% include 'assets/messages.html.twig' with { 'divId' : 'DeliveryAreaForm'} %}
+                    <div id="panel">
+                        <button id="saveDelivery" class="btn btn-medium btn-primary"
+                                data-i18n="deliveryPage.saveDelivery" onclick='saveDeliveryArea();'></button>
+                        <div class="item-content" style="width: 550px;">
+                            <span>Distance:</span>
+                            <span id="radiusAmount" style="border:0; color:#f6931f; font-weight:bold;"></span>
+                            <input type="hidden" name="deliveryRadius" id="deliveryRadius" value="{{ view.deliveryRadius }}">
+                            <div id="radiusSlider"
+                                 class="slider-tertiary ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
+                                 style="margin-top: 1em;" aria-disabled="false">
+                                <div class="ui-slider-range ui-widget-header ui-slider-range-min"
+                                     style="width: 100%;"></div>
+                                <a class="ui-slider-handle ui-state-default ui-corner-all" href="#"
+                                   style="left: 100%;"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div id="map-canvas" style="height: 500px; width: 550px;"></div>
+                {% endif %}
+            </div><!-- widget-header -->
+        </div><!-- widget stacked -->
+    </div><!-- span12-->
+</div><!-- row -->

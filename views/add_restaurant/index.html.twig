@@ -1,0 +1,57 @@
+{% extends 'layout.html.twig' %}
+
+{% block customstylesheets %}
+
+{% endblock %}
+
+{% block customjavascript %}
+
+{% endblock %}
+
+{% block menu %}
+    {% include 'super_menu.html.twig' with {add_restaurant:'active', restaurants:'open'} %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="main" id="addRestaurantPage">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="span12">
+
+                    <div class="widget stacked ">
+
+                        <div class="widget-header">
+                            <i class="icon-pencil"></i>
+
+                            <h3 data-i18n="addRestaurantPage.title"></h3>
+                        </div>
+                        <!-- /widget-header -->
+
+                        <div class="widget-content">
+                            {% include 'assets/loader.html.twig'  with { 'oneAjaxOnPage': true, 'divId' : 'restaurantForm'} %}
+                            {% include 'assets/messages.html.twig' with { 'error': error} %}
+
+                            <form action="/superadmin/add_restaurant" method="post">
+                                {{ form }}
+                                <button type="submit" id="form_save" name="form[save]" data-i18n="common.buttons.submit" class="btn btn-medium btn-primary">Submit</button>
+                            </form>
+                        </div>
+                        <!-- /widget-content -->
+
+                    </div>
+                    <!-- /widget -->
+
+                </div>
+                <!-- /span12 -->
+
+            </div>
+            <!-- /row -->
+
+        </div>
+        <!-- /container -->
+    </div> <!-- /main -->
+{% endblock %}

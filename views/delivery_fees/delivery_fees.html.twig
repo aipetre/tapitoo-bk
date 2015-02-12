@@ -1,0 +1,42 @@
+<script type="text/javascript" src="/js/manageDeliveryFees/saveFees.js"></script>
+<div class="row">
+
+    <div class="span12">
+
+        <div class="widget stacked">
+
+            <div class="widget-header">
+                <i class="icon-qrcode"></i>
+
+                <h3 data-i18n="deliveryFeePage.title"></h3>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+                {% include 'assets/loader.html.twig'  with { 'divId' : 'deliveryFeeForm'} %}
+                {% include 'assets/messages.html.twig' with { 'divId' : 'deliveryFeeForm'} %}
+                <form id="deliveryFeeForm" class="form-horizontal">
+                    <button id="saveFees" class="btn btn-medium btn-primary" data-i18n="deliveryFeePage.saveFees"></button>
+                    <fieldset>
+                        <div class="control-group">
+                            <label class="control-label" for="name" data-i18n="formFields.minDeliveryFee"></label>
+                            <div class="controls">
+                                <input type="text" name="minDeliveryFee" id="minDeliveryFee" value="{{ view.minDeliveryFee }}">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="name" data-i18n="formFields.deliveryFee"></label>
+                            <div class="controls">
+                                <input type="text" name="deliveryFee" id="deliveryFee" value="{{ view.deliveryFee }}">
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <!-- widget-header -->
+        </div>
+        <!-- widget stacked -->
+    </div>
+    <!-- span12-->
+
+</div>
+<!-- row -->

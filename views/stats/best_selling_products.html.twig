@@ -1,0 +1,44 @@
+<div class="span6">
+
+    <div class="widget stacked widget-table">
+
+        <div class="widget-header">
+            <span class="icon-file"></span>
+            <h3 data-i18n="statsPage.labels.bestsellingproducts"></h3>
+        </div> <!-- .widget-header -->
+
+        <div class="widget-content">
+            {#<script type="text/javascript">var ceva = {{ view.bestSellingProducts }};</script>#}
+
+            {% if (view.bestSellingProducts.length > 0) %}
+
+                <table class="table table-bordered table-striped">
+
+                    <thead><tr>
+                        <th data-i18n="menuPage.labels.product_name"></th>
+                        <th data-i18n="menuPage.labels.price"></th>
+                        <th data-i18n="menuPage.labels.status"></th>
+                        <th data-i18n="statsPage.labels.nooftimesorderd"></th>
+                    </tr></thead>
+
+                    <tbody>
+                    {% for key,value in view.bestSellingProducts %}
+                        <tr>
+                            <td class="description">{{ value.product.productName }}</td>
+                            <td class="description">{{ value.product.productPrice }}</td>
+                            <td class="description">{%  if value.product.productStatus == "true" %}<span data-i18n="common.labels.available"></span>{% else %}<span data-i18n="common.labels.not_available">{% endif %}</td>
+                            <td class="value"><span>{{ value.noOfTimersOrdered }}</span></td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+            {% else %}
+                {% include 'assets/messages.html.twig' with { 'error': view.bestSellingProducts.error} %}
+            {% endif %}
+
+        </div> <!-- .widget-content -->
+
+    </div>
+
+</div>

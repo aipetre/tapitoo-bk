@@ -1,0 +1,66 @@
+{% extends 'layout.html.twig' %}
+
+{% block customstylesheets %}
+{% endblock %}
+
+{% block customjavascript %}
+    <script type="text/javascript" src="/js/manageStaff/addEditStaff.js"></script>
+{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html.twig' with {restaurant:'', clients:'open', orders:'open', stats:'', staff:'active'} %}
+{% endblock %}
+
+{% block content %}
+    <div class="main" id="staffPage">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="span12">
+
+                    <div class="widget stacked">
+
+                        <div class="widget-header">
+                            <i class="icon-pencil"></i>
+
+                            <h3 data-i18n="mainnav.{{ layoutTitle }}"></h3>
+                        </div>
+                        <!-- /widget-header -->
+
+                        <div class="widget-content">
+                            <input type="hidden" id="loggedInUserType" value="{{ view.loggedInUserType }}" />
+                            <input type="hidden" id="editedUserType" value="{{ view.editedUserType }}" />
+                            <input type="hidden" id="layoutTitle" value="{{ view.layoutTitle }}" />
+
+                            {% if message is defined and message != null %}
+                                <div class="success" style="clear: both; margin-bottom: 10px;" data-i18n="{{ message }}"></div>
+                            {% endif%}
+                            {% if error is defined and error != null %}
+                                <div class="error" style="clear: both; margin-bottom: 10px;" data-i18n="{{ error }}"></div>
+                            {% endif%}
+                            <form id="add-staff" class="form-horizontal" method="POST" action="{{ form_action }}">
+                                <fieldset>
+                                    {{ form }}
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn btn-medium btn-primary" data-i18n="common.buttons.save_changes"></button>
+                                    </div> <!-- /form-actions -->
+                                </fieldset>
+                            </form>
+                        </div>
+                        <!-- widget-header -->
+                    </div>
+                    <!-- widget stacked -->
+
+                </div>
+                <!-- span12-->
+
+            </div>
+            <!-- row -->
+
+        </div>
+        <!-- container -->
+
+    </div> <!-- /main -->
+{% endblock %}

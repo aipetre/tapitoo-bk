@@ -1,0 +1,9 @@
+{% extends 'login_layout.html.twig' %}
+{% block content %}
+    <div class="account-container stacked" id="loginPage">
+        <div class="content clearfix">
+            <!-- See signup.html and login.html-->
+            {% include page with {'params' : params} %}
+        </div>
+    </div> <!-- /account-container -->
+{% endblock %}

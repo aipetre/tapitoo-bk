@@ -1,0 +1,126 @@
+{% extends 'layout.html.twig' %}
+
+{% block customstylesheets %}
+
+{% endblock %}
+
+{% block customjavascript %}
+    <script src="/js/pagination.js"></script>
+    <script type="text/javascript">
+        document.restaurants = {{ restaurants|json_encode }};
+    </script>
+    <script src="/js/Scripts/jquery.msgBox.js"></script>
+    <script type="text/javascript" src="/js/manageRestaurants/restaurants.js"></script>
+{% endblock %}
+
+{% block menu %}
+    {% include 'super_menu.html.twig' with {add_restaurant:'open', restaurants:'active'} %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="main" id="restaurantsPage">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="span12">
+
+                    <div class="widget stacked ">
+
+                        <div class="widget-header">
+                            <i class="icon-pencil"></i>
+
+                            <h3 data-i18n="restaurantsPage.title"></h3>
+                        </div>
+                        <!-- /widget-header -->
+
+                        <div class="widget-content">
+                            {% include 'assets/loader.html.twig'  with { 'oneAjaxOnPage': true, 'divId' : 'RestaurantsForm'} %}
+                            {% include 'assets/messages.html.twig' with { 'message': message, 'error': error} %}
+
+                                <table class="table table-bordered table-striped table-highlight" id="paginationTable">
+                                    <thead>
+                                    <tr>
+                                        <th data-i18n="restaurantsPage.labels.name"></th>
+                                        <th data-i18n="restaurantsPage.labels.restaurantId"></th>
+                                        <th data-i18n="restaurantsPage.labels.isChain"></th>
+                                        <th data-i18n="restaurantsPage.labels.status"></th>
+                                        <th data-i18n="restaurantsPage.labels.staff"></th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                    </thead>
+                                    </thead>
+                                    {% if restaurants.length > 0 %}
+                                        <tbody>
+                                        {% for key,restaurant in restaurants %}
+                                            {% set fullRestaurantId = restaurant.restaurantId %}
+                                            {% if restaurant.isChain == "true" %}
+                                                {% set staffTypes = ["chainmanager", "manager", "operator"] %}
+                                            {% else %}
+                                                {% set staffTypes = ["manager", "operator"] %}
+                                            {% endif %}
+                                            <tr>
+                                                <td>{{ restaurant.displayName }}</td>
+                                                <td>{{ restaurant.restaurantId }}</td>
+                                                <td>{% if restaurant.isChain == "true" %}<span data-i18n="common.labels.yes"></span>{% else %}<span data-i18n="common.labels.no"></span>{% endif %}</td>
+                                                <td>
+                                                    {% set divId = "Status" ~ restaurant.restaurantId %}
+                                                    {% include 'assets/loader.html.twig'  with { 'divId' : divId %}
+                                                    {% set messagesId = "Status" ~ restaurant.restaurantId %}
+                                                    {% include 'assets/messages.html.twig' with { 'divId': messagesId} %}
+                                                    <select id="restaurantStatus" style="width: 120px;" onchange="changeRestaurantStatus(this, '{{ restaurant.restaurantId }}');">
+                                                        <option value="closed" data-i18n="common.labels.closed" {% if restaurant.status == "closed" %}selected="selected"{% endif %}></option>
+                                                        <option value="available"  data-i18n="common.labels.available" {% if restaurant.status == "available" %}selected="selected"{% endif %}></option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    {% if attribute(staffMembers,fullRestaurantId) is defined %}
+                                                    {% set divId = "Staff" ~ fullRestaurantId %}
+                                                    {% include 'assets/loader.html.twig'  with { 'divId' : divId %}
+                                                    {% set messagesId = "Staff" ~ fullRestaurantId %}
+                                                    {% include 'assets/messages.html.twig' with { 'divId': messagesId} %}
+                                                    <select id="restaurantStaff" style="width: 200px;">
+                                                        <option value=""></option>
+                                                        {% for staffType in staffTypes  %}
+                                                            {% if restaurant.isChain == "true" and staffType == "manager"%}
+                                                            <optgroup data-i18n="[label]common.labels.locationmanager">
+                                                                {% else %}
+                                                            <optgroup data-i18n="[label]common.labels.{{ staffType }}">
+                                                            {% endif %}
+                                                            {% for key, staff in attribute(attribute(staffMembers,fullRestaurantId), staffType) %}
+                                                                <option value="{{ staff.email }}">{{ staff.email }}</option>
+                                                            {% endfor %}
+                                                            </optgroup>
+                                                        {% endfor %}
+                                                    </select><br />
+                                                    <button href="#" class="btn btn-small btn-tertiary" data-i18n="restaurantsPage.buttons.update_password" alt="updatePassword" restaurantId="{{ restaurant.restaurantId }}" locationId="{{ restaurant.id }}"></button>
+                                                    {% endif %}
+                                                </td>
+                                                <td><button alt='deleteRestaurant' class="btn btn-medium btn-danger" data-i18n="common.buttons.delete" style="vertical-align: top;" restaurantId="{{ restaurant.restaurantId }}" locationId="{{ restaurant.id }}" displayName="{{ restaurant.displayName }}"></button></td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    {% endif %}
+                                </table>
+                                <!-- the input fields that will hold the variables we will use -->
+                                <input type='hidden' id='current_page'/>
+                                <div class="pagination" id="page_navigation"></div>
+
+                        </div>
+                        <!-- /widget-content -->
+
+                    </div>
+                    <!-- /widget -->
+
+                </div>
+                <!-- /span12 -->
+
+            </div>
+            <!-- /row -->
+
+        </div>
+        <!-- /container -->
+    </div> <!-- /main -->
+{% endblock %}

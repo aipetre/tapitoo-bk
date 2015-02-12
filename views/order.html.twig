@@ -1,0 +1,84 @@
+{% set colors = { "new": "#E9DC51", "accepted": "#d6e9c6", "launched": "", "denied": "#ee5f5b", "closed": "#c0c0c0"} %}
+{% if details['status']|length  > 0 %}
+    {% set status = details['status'] %}
+{% else %}
+    {% set status = "new" %}
+{% endif %}
+<tr>
+    <td>
+        <div class="accordion-group">
+            <div class="accordion-heading" style="background: {{ colors[status] }};">
+                <input type="hidden" name="orderId" value="{{ details.id }}" />
+                {% if status != "closed" %}
+                <select style="float:right; margin-left:15px;" onchange="alterOrder(this);" oldValue="{{ status }}" onfocus="updateOldValue(this);">
+                    <option value="new" {% if status == "new" %}selected="selected" {% endif %}></option>
+                    <option value="accepted" {% if status == "accepted" %}selected="selected" {% endif %} data-i18n="ordersPage.buttons.accept_order"></option>
+                    <option value="launched" {% if status == "launched" %}selected="selected" {% endif %} data-i18n="ordersPage.buttons.launch_order"></option>
+                    <option value="denied" {% if status == "denied" %}selected="selected" {% endif %} data-i18n="ordersPage.buttons.deny_order"></option>
+                    <option value="closed" {% if status == "closed" %}selected="selected" {% endif %} data-i18n="ordersPage.buttons.close_order"></option>
+                </select>
+                {% endif %}
+                <a class="accordion-toggle" data-toggle="collapse" href="#collapse{{ index }}">
+                    <span data-i18n="common.labels.name"></span>:&nbsp;{{ details.client.name }}&nbsp;&nbsp;&nbsp;
+                    <span data-i18n="common.labels.tel"></span>:&nbsp;{{ details.client.tel }}&nbsp;&nbsp;&nbsp;
+                    {#<span data-i18n="common.labels.mail"></span>:&nbsp;{{ details.client.mail }}&nbsp;&nbsp;&nbsp;#}
+                    <span data-i18n="common.labels.date"></span>:&nbsp;{{ details.date }}&nbsp;&nbsp;&nbsp;
+                    <span data-i18n="common.labels.status"></span>:&nbsp;<span  id="orderStatus" data-i18n="ordersPage.labels.{{status}}"></span>&nbsp;&nbsp;&nbsp;
+                    <!-- UNCOMMENT THIS WHEN TYPE IS PROPERLY SAVED. -->
+                    <span data-i18n="common.labels.type"></span>:&nbsp;<span  id="orderStatus" data-i18n="ordersPage.labels.{{details.type}}"></span>&nbsp;&nbsp;&nbsp;
+                    <span data-i18n="common.labels.total_due"></span>:&nbsp;{{ details.total }}
+                </a>
+            </div>
+            <div id="collapse{{ index }}" class="accordion-body collapse">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th data-i18n="common.labels.delivery_address"></th>
+                        <th>&nbsp;</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ details.deliveryAddress }}</td>
+                        <td style="width: 100px;"><a alt="showAddress" href="#" data-i18n="ordersPage.labels.show_map" lat="{{ details.latLng.latitude }}" lng="{{ details.latLng.longitude }}" address="{{ details.deliveryAddress }}"></a></td>
+                    </tbody>
+                </table>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th data-i18n="ordersPage.tableHeader.product"></th>
+                        <th data-i18n="ordersPage.tableHeader.quantity"></th>
+                        <th data-i18n="ordersPage.tableHeader.price"></th>
+                        <th data-i18n="ordersPage.tableHeader.total"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for key,product in details.products %}
+                        <tr>
+                            <td>{{ allProducts[product.productId].productName }}</td>
+                            <td style="text-align:center">{{ product.quantity }}</td>
+                            <td>{{ allProducts[product.productId].productPrice }}</td>
+                            <td>{{ allProducts[product.productId].productPrice * product.quantity }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+                {% if details.additionalInfo is not empty  %}
+                <table class="table table-striped table-bordered">
+                    <thead>
+                    <tr>
+                        <th data-i18n="common.labels.additionalInfo"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>{{ details.additionalInfo }}</td>
+                    </tbody>
+                </table>
+                {% endif %}
+            </div>
+        </div>
+    </td>
+</tr>

@@ -1,0 +1,11 @@
+{% if divId is not defined %}
+    {% set divId = "" %}
+{% endif %}
+{% if message is defined and message != null %}
+    <div class="success" style="clear: both; margin-bottom: 10px;" data-i18n="{{ message }}"></div>
+{% endif%}
+{% if error is defined and error != null %}
+    <div id="messages{{ divId }}" class="messages" style="clear: both; margin-bottom: 10px;" data-i18n="{{ error }}"></div>
+{% else %}
+    <div id="messages{{ divId }}" class="messages" style="clear: both; display: none; margin-bottom: 10px;"></div>
+{% endif %}

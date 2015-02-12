@@ -1,0 +1,50 @@
+<tr>
+    <td width="80" id="productImagePlaceHolder">
+        {#<ul class="gallery-container">#}
+            {#<li>#}
+        {#{% if product.normalPic|length > 0 %}#}
+            {#<a href="{{ product.normalPic }}" class="ui-lightbox">#}
+                {#<img src="{{ product.resizedPic }}"/>#}
+            {#</a>#}
+            {#<a href="{{ product.normalPic }}" class="preview"></a>#}
+        {#{% else %}#}
+                {#<a href="/img/menu/0c98a7f0-008c-11e4-86c7-9f5da5a8d857.jpeg" class="ui-lightbox">#}
+                    {#<img  id="productImagePlaceHolder" src="/img/menu/thumb_0c98a7f0-008c-11e4-86c7-9f5da5a8d857.jpeg" />#}
+                {#</a>#}
+                {#<a href="/img/menu/0c98a7f0-008c-11e4-86c7-9f5da5a8d857.jpeg" class="preview"></a>#}
+        {#{% endif %}#}
+            {#</li>#}
+        {#</ul>#}
+        {% if product.normalPic|length > 0 %}
+                <img  id="productImagePlaceHolder{{ product.id }}" src="{{ product.resizedPic }}" />
+        {% else %}
+                <img  id="productImagePlaceHolder{{ product.id }}" src="/img/menu/defaultPic.jpg" />
+        {% endif %}
+    </td>
+    <td id="productName" style="width: 120px">
+        <span id="textValue">{{ product.productName }}</span>
+        <input type="hidden" name="id" value="{{ product.id }}">
+        <input type="hidden" name="productName" value="{{ product.productName }}">
+        <input type="hidden" name="productPrice" value="{{ product.productPrice }}">
+        <input type="hidden" name="priceCurrency" value="{{ product.priceCurrency }}">
+        <input type="hidden" name="productStatus" value="{{ product.productStatus }}">
+        <input type="hidden" name="productDescription" value="{{ product.productDescription }}">
+        <input type="hidden" name="resizedPic" value="{{ product.resizedPic }}">
+        <input type="hidden" name="normalPic" value="{{ product.normalPic }}">
+    </td>
+    <td id="productPrice" style="width: 60px">
+        {{ product.productPrice }}
+    </td>
+    <td id="productStatus" style="width: 100px" data-i18n="{% if product.productStatus == "false" %}common.labels.not_available{% else %}common.labels.available{% endif %}">
+
+    </td>
+    <td id="productDescription">
+        {{ product.productDescription }}
+    </td>
+    <td style="width: 150px">
+        {% if canDelete %}
+        <button style='float:right;' alt='deleteProductButton' class="btn btn-medium btn-danger" data-i18n="common.buttons.delete"></button>
+        {% endif %}
+        <button style='float:right;' alt="editProductButton" class="btn btn-medium btn-tertiary " data-i18n="common.buttons.edit"></button>
+    </td>
+</tr>

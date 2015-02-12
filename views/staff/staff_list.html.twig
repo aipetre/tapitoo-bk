@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="span12">
+        <div class="widget stacked">
+            <div class="widget-header">
+                <i class="icon-pencil"></i>
+                <h3 data-i18n="staffPage.title"></h3>
+            </div>
+            <!-- /widget-header -->
+            <div class="widget-content">
+                {% include 'assets/loader.html.twig'  with { 'divId' : 'staffForm'} %}
+                {% include 'assets/messages.html.twig' with { 'divId' : 'staffForm', 'error': error} %}
+                <a class="btn btn-medium btn-primary" href="/admin/add_staff"
+                   data-i18n="staffPage.buttons.add_staff"></a>
+                <br/>
+                <br/>
+                <table class="table table-bordered table-striped table-highlight">
+                    <thead>
+                    <tr>
+                        {#<th data-i18n="staffPage.labels.username"></th>#}
+                        <th data-i18n="staffPage.labels.email"></th>
+                        <th data-i18n="staffPage.labels.type"></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    {% if staffMembers.length > 0 %}
+                        <tbody>
+                        {% for key,value in staffMembers %}
+                            <tr>
+                                {#<td>{{ value.staffName }}</td>#}
+                                <td>{{ value.email }}</td>
+                                <td>{% if value.type == "null" %}manager{% else %}{{ value.type }}{% endif %}</td>
+                                <td><a class="btn" href="/admin/edit_staff/{{ value.email|url_encode }}/location/{{ value.locationId|url_encode }}"
+                                       data-i18n="common.buttons.edit"></a></td>
+                                <td>
+                                    <input type="hidden" name="staffEmail" id="staffEmail" value="{{ value.email }}">
+                                    <input type="hidden" name="staffName" id="staffName" value="{{ value.email }}">
+                                    <input type="hidden" name="staffLocationId" id="staffLocationId" value="{{ value.locationId }}">
+                                    <a class="btn btn-danger btn" href="#" onclick="deleteStaff(this);"
+                                       data-i18n="common.buttons.delete"></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    {% endif %}
+
+                </table>
+            </div>
+            <!-- widget-header -->
+        </div>
+        <!-- widget stacked -->
+    </div>
+    <!-- span12-->
+</div>
+<!-- row -->

@@ -1,0 +1,78 @@
+{% extends 'layout.html.twig' %}
+
+{% block customstylesheets %}
+
+{% endblock %}
+
+{% block customjavascript %}
+    <script src="/js/Scripts/jquery.msgBox.js"></script>
+    <script type="text/javascript" src="/js/manageLocations/locations.js"></script>
+{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html.twig' with {restaurant:'active', clients:'open', orders:'open', stats:'', staff:'open'} %}
+{% endblock %}
+
+{% block content %}
+
+    <div class="main" id="manageLocationsPage">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="span12">
+
+                    <div class="widget stacked ">
+
+                        <div class="widget-header">
+                            <i class="icon-pencil"></i>
+
+                            <h3 data-i18n="manageLocationsPage.title"></h3>
+                        </div>
+                        <!-- /widget-header -->
+
+                        <div class="widget-content">
+                            {% include 'assets/loader.html.twig'  with { 'oneAjaxOnPage': true, 'divId' : 'manageLocationsForm'} %}
+                            {% include 'assets/messages.html.twig' with { 'message': message, 'error': error} %}
+                            <a href="/admin/add_location" class="btn btn-medium btn-primary"  data-i18n="manageLocationsPage.buttons.add_location"></a><br /><br />
+
+                            <table class="table table-bordered table-striped table-highlight">
+                                <thead>
+                                <tr>
+                                    <th data-i18n="restaurantsPage.labels.name"></th>
+                                    <th data-i18n="restaurantsPage.labels.locationId"></th>
+                                    <th>&nbsp;</th>
+                                </tr>
+                                </thead>
+                                </thead>
+                                {% if view.locations.length > 0 %}
+                                    <tbody>
+                                    {% for key,location in view.locations %}
+                                        <tr>
+                                            <td>{{ location.name }}</td>
+                                            <td>{{ location.locationId }}</td>
+                                            <td><button alt='deleteRestaurant' class="btn btn-medium btn-danger" data-i18n="common.buttons.delete" style="vertical-align: top;" locationId="{{ location.locationId }}" displayName="{{ location.name }}"></button></td>
+                                        </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                {% endif %}
+
+                            </table>
+
+                        </div>
+                        <!-- /widget-content -->
+
+                    </div>
+                    <!-- /widget -->
+
+                </div>
+                <!-- /span12 -->
+
+            </div>
+            <!-- /row -->
+
+        </div>
+        <!-- /container -->
+    </div> <!-- /main -->
+{% endblock %}

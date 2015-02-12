@@ -1,0 +1,86 @@
+{% extends 'layout.html.twig' %}
+
+{% block customstylesheets %}
+    <style>
+        html, body, #map-canvas {
+            height: 100%;
+            margin: 0px;
+            padding: 0px
+        }
+        /* Bootstrap fixes */
+        #map-canvas img {
+            max-width: none;
+        }
+
+        #map-canvas label {
+            width: auto; display:inline;
+        }
+    </style>
+{% endblock %}
+
+{% block customjavascript %}
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true"></script>
+    <script src="/js/pagination.js"></script>
+    <script type="text/javascript">
+        document.products = {{ allProducts|json_encode }};
+        document.orders = {{ orders|json_encode }};
+    </script>
+    <script src="/js/Scripts/jquery.msgBox.js"></script>
+    <script type="text/javascript" src="/js/manageOrders/orders.js"></script>
+{% endblock %}
+
+
+{% block menu %}
+    {% include 'menu.html.twig' with {restaurant:'', clients:'open', orders:'active', stats:'', staff:'open'} %}
+{% endblock %}
+
+{% block content %}
+    <div class="main" id="ordersPage">
+        <div class="container">
+
+            <div class="widget stacked ">
+
+                <div class="widget-header">
+                    <i class="icon-envelope"></i>
+                    <h3 data-i18n="ordersPage.title"></h3>
+                </div>
+                <!-- /widget-header -->
+
+
+                <div class="widget-content">
+                    <!-- Map -->
+                    <div class="modal fade hide" id="myModal">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body" id="modalMine">
+                            <div id="map-canvas" style="height: 400px; width: 520px;"></div>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+
+                    {% include 'assets/loader.html.twig'  with { 'oneAjaxOnPage': true, 'divId' : 'ordersForm'} %}
+                    {% include 'assets/messages.html.twig' with { 'message': message, 'error': error} %}
+
+                    <button id="collapse" class="btn btn-medium btn-secondary" data-i18n="common.buttons.collapse"></button>
+                    <button id="show" class="btn btn-medium btn-secondary" data-i18n="common.buttons.show"></button>
+                    <button id="legend" class="btn btn-medium btn-secondary" data-i18n="common.buttons.legend"></button>
+                    <div id="colorsLegend" style="display: none;"></div>
+
+                    <table class="table table-bordered table-striped table-highlight" id="paginationTable">
+                    {% for key,value in orders %}
+
+                        {% include 'order.html.twig' with {'index':key,'details': value, 'allProducts': allProducts } %}
+
+                    {% endfor %}
+                    </table>
+
+                    <!-- the input fields that will hold the variables we will use -->
+                    <input type='hidden' id='current_page'/>
+                    <div class="pagination" id="page_navigation"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

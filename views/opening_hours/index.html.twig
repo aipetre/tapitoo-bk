@@ -1,0 +1,102 @@
+{% extends 'layout.html.twig' %}
+
+{% block customstylesheets %}
+{% endblock %}
+
+{% block customjavascript %}
+    <script src="/js/Scripts/jquery.msgBox.js"></script>
+    <script type="text/javascript" src="/js/manageOpeningHours/manage.hours.js"></script>
+{% endblock %}
+
+{% block menu %}
+    {% include 'menu.html.twig' with {restaurant:'active', clients:'open', orders:'open', stats:'', staff:'open'} %}
+{% endblock %}
+
+{% block content %}
+    <div class="main" id="openingHoursPage">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="span12">
+
+                    <div class="widget stacked">
+
+                        <div class="widget-header">
+                            <i class="icon-pencil"></i>
+
+                            <h3 data-i18n="openingHoursPage.title"></h3>
+                        </div>
+                        <!-- /widget-header -->
+
+                        <div class="widget-content">
+                            {% include 'assets/loader.html.twig'  with { 'oneAjaxOnPage': true, 'divId' : 'hoursForm'} %}
+                            {% include 'assets/messages.html.twig' with { 'error': error} %}
+                            <form name="hoursForm" id="hoursForm">
+                                <button id="saveOpeningHours" class="btn btn-medium btn-primary" data-i18n="common.buttons.save_changes"></button>
+                                <br /><br />
+                                <table class="table table-striped table-bordered" style="width: 450px;">
+                                    <thead>
+                                    <tr>
+                                        <th>&nbsp;</th>
+                                        <th data-i18n="common.labels.open"></th>
+                                        <th data-i18n="common.labels.closed"></th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td><label data-i18n="common.labels.sunday" for="form_sunday_opening_hours" class="required"></label></td>
+                                        <td><select id="sunday_opening_hours"></select><input type="hidden" id="sunday_opening_hours_option" value="{{ view.sunday_opening_hours }}"></td>
+                                        <td><select id="sunday_closing_hours"></select><input type="hidden" id="sunday_closing_hours_option" value="{{ view.sunday_closing_hours }}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label data-i18n="common.labels.monday" for="form_monday_opening_hours" class="required"></label></td>
+                                        <td><select id="monday_opening_hours"></select><input type="hidden" id="monday_opening_hours_option" value="{{ view.monday_opening_hours }}"></td>
+                                        <td><select id="monday_closing_hours"></select><input type="hidden" id="monday_closing_hours_option" value="{{ view.monday_closing_hours }}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label data-i18n="common.labels.tuesday" for="form_tuesday_opening_hours" class="required"></label></td>
+                                        <td><select id="tuesday_opening_hours"></select><input type="hidden" id="tuesday_opening_hours_option" value="{{ view.tuesday_opening_hours }}"></td>
+                                        <td><select id="tuesday_closing_hours"></select><input type="hidden" id="tuesday_closing_hours_option" value="{{ view.tuesday_closing_hours }}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label data-i18n="common.labels.wednesday" for="form_wednesday_opening_hours" class="required"></label></td>
+                                        <td><select id="wednesday_opening_hours"></select><input type="hidden" id="wednesday_opening_hours_option" value="{{ view.wednesday_opening_hours }}"></td>
+                                        <td><select id="wednesday_closing_hours"></select><input type="hidden" id="wednesday_closing_hours_option" value="{{ view.wednesday_closing_hours }}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label data-i18n="common.labels.thursday" for="form_thursday_opening_hours" class="required"></label></td>
+                                        <td><select id="thursday_opening_hours"></select><input type="hidden" id="thursday_opening_hours_option" value="{{ view.thursday_opening_hours }}"></td>
+                                        <td><select id="thursday_closing_hours"></select><input type="hidden" id="thursday_closing_hours_option" value="{{ view.thursday_closing_hours }}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label data-i18n="common.labels.friday" for="form_friday_opening_hours" class="required"></label></td>
+                                        <td><select id="friday_opening_hours"></select><input type="hidden" id="friday_opening_hours_option" value="{{ view.friday_opening_hours }}"></td>
+                                        <td><select id="friday_closing_hours"></select><input type="hidden" id="friday_closing_hours_option" value="{{ view.friday_closing_hours }}"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><label data-i18n="common.labels.saturday" for="form_saturday_opening_hours" class="required"></label></td>
+                                        <td><select id="saturday_opening_hours"></select><input type="hidden" id="saturday_opening_hours_option" value="{{ view.saturday_opening_hours }}"></td>
+                                        <td><select id="saturday_closing_hours"></select><input type="hidden" id="saturday_closing_hours_option" value="{{ view.saturday_closing_hours }}"></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                        <!-- widget-header -->
+                    </div>
+                    <!-- widget stacked -->
+
+                </div>
+                <!-- span12-->
+
+            </div>
+            <!-- row -->
+
+        </div>
+        <!-- container -->
+
+    </div> <!-- /main -->
+{% endblock %}

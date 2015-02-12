@@ -1,0 +1,95 @@
+<div class="subnavbar">
+
+    <div class="subnavbar-inner">
+
+        <div class="container">
+
+            <a class="btn-subnavbar collapsed" data-toggle="collapse" data-target=".subnav-collapse">
+                <i class="icon-reorder"></i>
+            </a>
+
+            <div class="subnav-collapse collapse">
+                <ul class="mainnav active">
+
+                    {% if globals.type != "operator" %}
+
+                    <li class="dropdown {{ restaurant }}" style="position:relative">
+                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="icon-external-link"></i>
+                            <span data-i18n="mainnav.restaurant">Restaurant</span>
+                            <span class="nav-counter" id="restaurantNotification" counter="0"></span>
+                            <b class="caret"></b>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            {% if globals.type == "chainmanager" %}
+                            <li class="dropdown-submenu">
+                                <a tabindex="-1" href="#" data-i18n="mainnav.mange_locations"></a>
+                                <ul class="dropdown-menu">
+                                    <li><a tabindex="-1" data-i18n="mainnav.view_locations_list" href="/admin/manage_locations"></a></li>
+                                    <li><a tabindex="-1" data-i18n="mainnav.add_location" href="/admin/add_location"></a></li>
+                                </ul>
+                            </li>
+                            {% endif %}
+                            <li><a href="/admin/location" data-i18n="mainnav.locations"></a></li>
+                            <li><a href="/admin/delivery" data-i18n="mainnav.delivery"></a></li>
+                            <li><a href="/admin/delivery_fees" data-i18n="mainnav.delivery_fees"></a></li>
+                            <li><a href="/admin/opening_hours" data-i18n="mainnav.opening_hours"></a></li>
+                            <li><a href="/admin/menu" data-i18n="mainnav.menu"></a></li>
+                        </ul>
+                    </li>
+
+                    <li class="{{ clients }}">
+                        <a href="/admin/clients">
+                            <i class="shortcut-icon icon-user"></i>
+                            <span data-i18n="mainnav.clients">Clients</span>
+                        </a>
+                    </li>
+
+                    {% if globals.type != "chainmanager" %}
+                    <li class="{{ orders }}" style="position:relative">
+                        <a href="/admin/orders">
+                            <i class="icon-list-alt"></i>
+                            <span data-i18n="mainnav.commands">Comenzi</span>
+                            <span class="nav-counter" id="ordersNotification" counter="0"></span>
+                        </a>
+                    </li>
+                    {% endif %}
+
+                    <li class="{{ stats  }}">
+                        <a href="/admin/stats">
+                            <i class="icon-copy"></i>
+                            <span data-i18n="mainnav.stats">Stats</span>
+                        </a>
+                    </li>
+
+                    <li class="{{ staff }}">
+                        <a href="/admin/staff">
+                            <i class="shortcut-icon icon-user"></i>
+                            <span data-i18n="mainnav.staff"></span>
+                        </a>
+                    </li>
+
+                    {% else  %}
+
+                        <li class="{{ orders }}" style="position:relative">
+                            <a href="/admin/orders">
+                                <i class="icon-list-alt"></i>
+                                <span data-i18n="mainnav.commands">Comenzi</span>
+                                <span class="nav-counter" id="ordersNotification" counter="0"></span>
+                            </a>
+                        </li>
+
+                    {% endif  %}
+
+                </ul>
+            </div>
+            <!-- /.subnav-collapse -->
+
+        </div>
+        <!-- /container -->
+
+    </div>
+    <!-- /subnavbar-inner -->
+
+</div> <!-- /subnavbar -->

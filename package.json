@@ -1,0 +1,44 @@
+{
+  "name": "Admin Tapitoo",
+  "version": "1.0.0",
+  "description": "Food ordering app",
+  "keywords": [
+    "Node.js",
+    "application",
+    "food ordering"
+  ],
+  "author": {
+    "name": "Ionut Alexandru Petre",
+    "email": "ionut_petre33@yahoo.com"
+  },
+  "homepage": "http://tapitoo.com/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aipetre/tapitoo-bk.git"
+  },
+
+  "engines": {
+    "node": ">= 0.6.0",
+    "npm": ">= 1.0.0"
+  },
+
+  "dependencies": {
+    "express": "3.4.8",
+     "twig": "0.7.0",
+    "request": "2.39.0",
+    "forms": "0.3.0",
+    "socket.io": "0.9.16",
+    "node-uuid": "1.4.1",
+    "string": "1.8.0",
+    "node-gcm": "0.9.10",
+    "apn": "1.4.4",
+    "log4js": "0.6.13",
+    "pretty-data": "0.40.0",
+    "quickthumb": "0.0.9"
+  },
+  "devDependencies": {},
+  "bundleDependencies": [],
+
+  "private": true,
+  "main": "server.js"
+}
